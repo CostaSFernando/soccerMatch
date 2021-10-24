@@ -1,5 +1,5 @@
 import { Connection } from 'mongoose';
-import { PlayerSchema } from '../schemas/player.schema';
+import { PlayerSchema } from '../../schemas/player.schema';
 
 export const playersProviders = [
   {

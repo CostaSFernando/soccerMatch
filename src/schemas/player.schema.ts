@@ -4,5 +4,7 @@ export const PlayerSchema = new mongoose.Schema({
   name: String,
   birthday: Date,
   position: String,
-  goals: Number
+  goals: Number,
+  password: String,
+  email: String
 });

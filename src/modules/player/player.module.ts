@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 // import { CatsController } from './cats.controller';
 import { PlayersService } from './player.service';
 import { playersProviders } from './player.providers';
-import { DatabaseModule } from '../database/database.module';
+import { DatabaseModule } from '../../database/database.module';
 import { PlayerController } from './player.controller';
 
 @Module({
@@ -14,5 +14,6 @@ import { PlayerController } from './player.controller';
     PlayersService,
     ...playersProviders,
   ],
+  exports: [PlayersService]
 })
 export class PlayerModule {}

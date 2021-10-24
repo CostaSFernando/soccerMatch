@@ -1,13 +1,15 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { GameModule } from './game/game.module';
-import { PlayerModule } from './player/player.module';
+import { GameModule } from './modules/game/game.module';
+import { PlayerModule } from './modules/player/player.module';
+import { AuthModule } from './modules/auth/auth.module';
 
 @Module({
   imports: [
     PlayerModule,
-    GameModule
+    GameModule,
+    AuthModule
   ],
   controllers: [AppController],
   providers: [AppService],
