@@ -7,7 +7,6 @@ import { AuthModule } from './modules/auth/auth.module';
 
 @Module({
   imports: [
-    PlayerModule,
     GameModule,
     AuthModule
   ],

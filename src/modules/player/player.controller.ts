@@ -1,6 +1,7 @@
 import { Body, Controller, Get, Param, Post, UseGuards, Request } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { resultCreateDto } from 'src/dto/resultCreate.dto';
+import { AuthService } from '../auth/auth.service';
 import { requestLoginPlayer } from './dto/authPlayer.dto';
 import { CreatePlayerDto } from './dto/createPlayer.dto';
 import { paramPlayerDto } from './dto/paramPlayer.dto';
@@ -9,12 +10,13 @@ import { PlayersService } from './player.service';
 
 @Controller('player')
 export class PlayerController {
-  constructor(private readonly playerService: PlayersService) {}
+  constructor(private readonly playerService: PlayersService, 
+    private authService: AuthService) {}
 
   @UseGuards(AuthGuard('local'))
   @Post('login')
   async login(@Request() req) {
-    return req.user;
+    return this.authService.login(req.user);
   }
 
   @Get('all')
