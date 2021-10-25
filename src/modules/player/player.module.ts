@@ -12,8 +12,8 @@ import { AuthModule } from '../auth/auth.module';
     PlayerController
   ],
   providers: [
-    PlayersService,
     ...playersProviders,
+    PlayersService,
   ],
   exports: [PlayersService]
 })

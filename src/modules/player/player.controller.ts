@@ -2,6 +2,7 @@ import { Body, Controller, Get, Param, Post, UseGuards, Request } from '@nestjs/
 import { AuthGuard } from '@nestjs/passport';
 import { resultCreateDto } from 'src/dto/resultCreate.dto';
 import { AuthService } from '../auth/auth.service';
+import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { requestLoginPlayer } from './dto/authPlayer.dto';
 import { CreatePlayerDto } from './dto/createPlayer.dto';
 import { paramPlayerDto } from './dto/paramPlayer.dto';
@@ -19,6 +20,7 @@ export class PlayerController {
     return this.authService.login(req.user);
   }
 
+  @UseGuards(JwtAuthGuard)
   @Get('all')
   async getAllPlayers(): Promise<Player[]> {
     return this.playerService.findAll();
