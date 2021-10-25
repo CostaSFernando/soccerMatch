@@ -1,4 +1,4 @@
 export interface Token {
     hash: string,
-    player: string
+    email: string
 }
